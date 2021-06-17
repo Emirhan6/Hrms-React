@@ -8,7 +8,7 @@ import { Container, Grid } from "semantic-ui-react";
 
 export default class App extends Component {
 
-  state={currentCategory:""}
+  state={currentCategory:"",positions:[]}
 
   changeCategory = (category) => {
     this.setState({ currentCategory: category.name });
