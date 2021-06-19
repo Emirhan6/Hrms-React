@@ -1,5 +1,5 @@
 import React from "react";
-import { Dropdown, Label, TextArea,Input, Grid } from "semantic-ui-react";
+import { Dropdown, Label, Input, Grid, Button, Form, Segment } from "semantic-ui-react";
 
 export default function JobAdvertisementCreate() {
   const jobOptions = [
@@ -23,7 +23,7 @@ export default function JobAdvertisementCreate() {
   ];
   return (
     <div>
-      <Grid>
+      {/* <Grid>
         <Grid.Row>
           <Grid.Column width={8}>
           <Label style={{ marginBottom: "1rem", marginRight: "43rem"}}>
@@ -106,7 +106,39 @@ export default function JobAdvertisementCreate() {
       <textarea placeholder="Açıklamalar" style={{marginRight: "50rem" , minHeight:"75px",width:"25rem"}} />
           </Grid.Column>
         </Grid.Row>
-      </Grid>
+      </Grid> */}
+
+
+
+
+      <Segment  style={{ marginTop: "2em" }}>
+        <Form >
+          <Form.Group widths="equal">
+            <Form.Select fluid label="Çalışma Seçenekleri" placeholder="Çalışma Seçenekleri" options={jobOptions} />
+            <Form.Select fluid label="Çalışma Zamanı Özelliği" placeholder="Çalışma Zamanı Özelliği" options={workTimeOptions} />
+          </Form.Group>
+          <Form.Group widths="equal">
+            <Form.Input fluid label="Minimum Maaş" placeholder="Minimum Maaş" />
+            <Form.Input fluid label="Maksimum Maaş" placeholder="Maksimum Maaş" />
+          </Form.Group>
+          <Form.Group widths="equal">
+            <Form.Input fluid label="Yayınlanma Tarihi" placeholder="Yayınlanma Tarihi" type="date" />
+            <Form.Input fluid label="Bitiş Tarihi" placeholder="Bitiş Tarihi" type="date" />
+          </Form.Group>
+          <Form.Group widths="equal">
+            <Form.Input fluid label="Açık Pozisyon" placeholder="Açık Pozisyon" />
+            <Form.Input fluid label="Açık Pozisyon Sayısı" placeholder="Açık Pozisyon Sayısı" type="number" />
+          </Form.Group>
+          <Form.Group widths="equal">
+            <Form.Select fluid label="Şehir" placeholder="Şehir" options={cities}/>
+          </Form.Group>
+          <Form.Group widths="equal">
+            <Form.Input fluid label="Açıklamalar" placeholder="Açıklamalar" />
+          </Form.Group>
+          <Form.Checkbox label="I agree to the Terms and Conditions" />
+          <Button type="submit">Ekle</Button>
+        </Form>
+      </Segment>
     </div>
   );
 }

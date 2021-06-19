@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Icon, Menu, Table } from "semantic-ui-react";
+import { NavLink } from "react-router-dom";
+import { Icon, Menu, Table,Button } from "semantic-ui-react";
 import JobSeekerService from "../services/jobSeekerService";
 
 export default function JobSeekerList() {
@@ -15,7 +16,7 @@ export default function JobSeekerList() {
 
   return (
     <div>
-      <Table celled>
+      <Table celled style={{marginTop:"3em"}}>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>Ad</Table.HeaderCell>
@@ -23,6 +24,7 @@ export default function JobSeekerList() {
             <Table.HeaderCell>Email</Table.HeaderCell>
             <Table.HeaderCell>Doğum Yılı</Table.HeaderCell>
             <Table.HeaderCell>Tc No</Table.HeaderCell>
+            <Table.HeaderCell></Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 
@@ -34,13 +36,14 @@ export default function JobSeekerList() {
               <Table.Cell>{jobSeeker.email}</Table.Cell>
               <Table.Cell>{jobSeeker.birthDate}</Table.Cell>
               <Table.Cell>{jobSeeker.nationalityId}</Table.Cell>
+              <Table.Cell><Button as={NavLink} to={`/jobseeker/${jobSeeker.firstName}`} primary>Detaya Git</Button></Table.Cell>
             </Table.Row>
           ))}
         </Table.Body>
 
         <Table.Footer>
           <Table.Row>
-            <Table.HeaderCell colSpan="5">
+            <Table.HeaderCell colSpan="6">
               <Menu floated="right" pagination>
                 <Menu.Item as="a" icon>
                   <Icon name="chevron left" />

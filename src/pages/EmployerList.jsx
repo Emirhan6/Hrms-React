@@ -16,7 +16,7 @@ export default function EmployerList() {
 
   return (
     <div>
-      <Table celled>
+      <Table celled style={{marginTop:"3em"}}>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>Şirket Adı</Table.HeaderCell>

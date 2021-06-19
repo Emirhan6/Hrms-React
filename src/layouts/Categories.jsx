@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Menu, Button } from "semantic-ui-react";
+import { Menu } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
 export default class Categories extends Component {
@@ -41,7 +41,7 @@ export default class Categories extends Component {
               </Menu.Header>
 
               <Menu.Menu>
-                <Menu.Item as={Link} to={"/jobadcreate"} name={category.name + "Ekle"} />
+                <Menu.Item as={Link} to={"/"+category.name.toLowerCase()+"create"} name={category.name + "Ekle"} />
               </Menu.Menu>
             </Menu.Item>
           ))}

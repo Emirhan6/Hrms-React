@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Icon, Label, Menu, Table } from "semantic-ui-react";
+import { Icon, Menu, Table } from "semantic-ui-react";
 import EmployeeService from "../services/employeeService";
 
 
@@ -16,7 +16,7 @@ export default function EmployeeList() {
 
   return (
     <div>
-      <Table celled>
+      <Table celled style={{marginTop:"3em"}}>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>Ad</Table.HeaderCell>

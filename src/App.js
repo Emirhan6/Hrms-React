@@ -2,6 +2,7 @@ import "./App.css";
 import React, { Component } from "react";
 import Dashboard from "./layouts/Dashboard";
 import "semantic-ui-css/semantic.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Navi from "./layouts/Navi";
 import Categories from "./layouts/Categories";
 import { Container, Grid } from "semantic-ui-react";
@@ -20,7 +21,7 @@ export default class App extends Component {
         <Navi />
         <Grid>
           <Grid.Row>
-            <Grid.Column width={2}>
+            <Grid.Column style={{marginTop:"2em",marginLeft:"3em"}} width={2}>
               <Container className="main">
                 <Categories currentCategory={this.state.currentCategory} changeCategory={this.changeCategory} />
               </Container>

@@ -1,13 +1,15 @@
 import React,{useState} from "react";
-import { Button, Container, Dropdown, Menu } from "semantic-ui-react";
+import { Container, Menu } from "semantic-ui-react";
 import SignedOut from "./SignedOut";
 import SignedIn from "./SignedIn";
+import { useHistory } from "react-router-dom";
 
 export default function Navi() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
-
+  const history = useHistory()
   function handleSignOut() {
     setIsAuthenticated(false)
+    history.push("/")
   }
 
   function handleSignIn() {

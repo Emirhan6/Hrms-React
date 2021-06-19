@@ -13,7 +13,7 @@ export default function JobAdvertisementList() {
   }, []);
   return (
     <div>
-      <Table celled>
+      <Table celled style={{marginTop:"3em"}}>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>İlan Durumu</Table.HeaderCell>
