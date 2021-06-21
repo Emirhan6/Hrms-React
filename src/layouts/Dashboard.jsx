@@ -13,6 +13,8 @@ import PositionCreate from "../pages/PositionCreate";
 import JobSeekerCreate from "../pages/JobSeekerCreate";
 import EmployeeCreate from "../pages/EmployeeCreate";
 import EmployerCreate from "../pages/EmployerCreate";
+import CvList from "../pages/CvList";
+import CvDetail from "../pages/CvDetail";
 
 export default function Dashboard() {
 
@@ -29,6 +31,7 @@ export default function Dashboard() {
             <Route exact path="/employers" component={EmployerList}/>
             <Route exact path="/employees" component={EmployeeList}/>
             <Route exact path="/jobadvertisements" component={JobAdvertisementList}/>
+            <Route exact path="/cvs" component={CvList}/>
 
             <Route exact path="/jobadvertisementscreate" component={JobAdvertisementCreate}/>
             <Route exact path="/positionscreate" component={PositionCreate}/>
@@ -37,6 +40,7 @@ export default function Dashboard() {
             <Route exact path="/employerscreate" component={EmployerCreate}/>
 
             <Route exact path="/jobseeker/:name" component={JobSeekerDetail}/>
+            <Route exact path="/cv/:id" component={CvDetail}/>
 
             <Route exact path="/register" component={RegisterForm}/>
           </Grid.Column>
