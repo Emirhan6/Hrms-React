@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import CvService from "../services/cvService";
 import JobSeekerService from "../services/jobSeekerService";
-import { Table,Button } from "semantic-ui-react";
+import { Table, Card, Icon, Image} from "semantic-ui-react";
 
 export default function CvDetail() {
 
   let { id } = useParams();
 
   const [cv, setCv] = useState({});
+
+  const [cvs, setCvs] = useState([]);
+
+  useEffect(() => {
+    let cvService = new CvService();
+    cvService.getCvs().then((result) => setCvs(result.data.data));
+  }, []);
 
   useEffect(() => {
     let cvService = new CvService();
@@ -26,6 +33,7 @@ export default function CvDetail() {
 
   return (
     <div>
+
       <Table celled padded style={{ marginTop: "2em" }}>
         <Table.Header>
           <Table.Row>
@@ -35,6 +43,7 @@ export default function CvDetail() {
         </Table.Header>
 
         <Table.Body>
+          
           <Table.Row>
             <Table.Cell>
               <h4>Ad</h4>
@@ -59,12 +68,46 @@ export default function CvDetail() {
             </Table.Cell>
             <Table.Cell>{jobSeeker.birthDate}</Table.Cell>
           </Table.Row>
-          <Table.Row>
-            <Table.Cell><Button onClick={cv.githubAccount} icon="github icon"></Button></Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.Cell><Button onClick={cv.githubAccount} icon="linkedin icon"></Button></Table.Cell>
-          </Table.Row>
+          {
+            cvs.map(cv=>(
+              <Table.Row>
+                <Table.Cell><h4>Github</h4></Table.Cell>
+                <Table.Cell>{cv.githubAccount}</Table.Cell>
+              </Table.Row>
+            ))
+          }
+          {
+            cvs.map(cv=>(
+              <Table.Row>
+                <Table.Cell><h4>Linkedin</h4></Table.Cell>
+                <Table.Cell>{cv.linkedinAccount}</Table.Cell>
+              </Table.Row>
+            ))
+          }
+          {
+            cvs.map(cv=>(
+              <Table.Row>
+                <Table.Cell><h4>Yabancı Diller</h4></Table.Cell>
+                <Table.Cell>{cv.foreignLanguages} (Seviyesi : {cv.languageLevel})</Table.Cell>
+              </Table.Row>
+            ))
+          }
+          {
+            cvs.map(cv=>(
+              <Table.Row>
+                <Table.Cell><h4>Yazılım Teknolojileri</h4></Table.Cell>
+                <Table.Cell>{cv.programmingLanguages}</Table.Cell>
+              </Table.Row>
+            ))
+          }
+          {
+            cvs.map(cv=>(
+              <Table.Row>
+                <Table.Cell><h4>Okul</h4></Table.Cell>
+                <Table.Cell>{cv.schoolName} (Bölümü : {cv.department})</Table.Cell>
+              </Table.Row>
+            ))
+          }
         </Table.Body>
       </Table>
     </div>

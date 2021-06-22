@@ -5,11 +5,12 @@ import { Link } from "react-router-dom";
 export default class Categories extends Component {
   state = {
     categories: [
-      { id: 1, name: "Positions" },
-      { id: 2, name: "JobSeekers" },
-      { id: 3, name: "Employers" },
-      { id: 4, name: "Employees" },
-      { id: 5, name: "JobAdvertisements" },
+      { id: 1, name: "Cv" },
+      { id: 2, name: "Positions" },
+      { id: 3, name: "JobSeekers" },
+      { id: 4, name: "Employers" },
+      { id: 5, name: "Employees" },
+      { id: 6, name: "JobAdvertisements" }
     ],
   };
 

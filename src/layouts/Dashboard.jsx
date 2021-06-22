@@ -15,6 +15,7 @@ import EmployeeCreate from "../pages/EmployeeCreate";
 import EmployerCreate from "../pages/EmployerCreate";
 import CvList from "../pages/CvList";
 import CvDetail from "../pages/CvDetail";
+import CvCreate from "../pages/CvCreate";
 
 export default function Dashboard() {
 
@@ -31,13 +32,14 @@ export default function Dashboard() {
             <Route exact path="/employers" component={EmployerList}/>
             <Route exact path="/employees" component={EmployeeList}/>
             <Route exact path="/jobadvertisements" component={JobAdvertisementList}/>
-            <Route exact path="/cvs" component={CvList}/>
+            <Route exact path="/cv" component={CvList}/>
 
             <Route exact path="/jobadvertisementscreate" component={JobAdvertisementCreate}/>
             <Route exact path="/positionscreate" component={PositionCreate}/>
             <Route exact path="/jobseekerscreate" component={JobSeekerCreate}/>
             <Route exact path="/employeescreate" component={EmployeeCreate}/>
             <Route exact path="/employerscreate" component={EmployerCreate}/>
+            <Route exact path="/cvcreate" component={CvCreate}/>
 
             <Route exact path="/jobseeker/:name" component={JobSeekerDetail}/>
             <Route exact path="/cv/:id" component={CvDetail}/>
