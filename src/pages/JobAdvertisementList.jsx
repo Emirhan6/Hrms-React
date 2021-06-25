@@ -1,8 +1,12 @@
 import React,{ useState, useEffect } from "react";
-import { Icon, Menu, Table } from "semantic-ui-react";
+import { Icon, Menu, Table, Button } from "semantic-ui-react";
 import JobAdvertisementService from "../services/jobAdvertisementService";
+import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
+import { addToFavorie } from "../store/actions/favorieActions";
 
 export default function JobAdvertisementList() {
+  const dispatch = useDispatch();
   const [jobAdvertisements, setJobAdvertisements] = useState([]);
 
   useEffect(() => {
@@ -11,9 +15,15 @@ export default function JobAdvertisementList() {
       .getJobAdvertisements()
       .then((result) => setJobAdvertisements(result.data.data));
   }, []);
+
+  const handleAddToFavorie = (jobAdvertisement) => {
+    dispatch(addToFavorie(jobAdvertisement));
+    toast.success(`İlan ${jobAdvertisement.advertisementId} favorilere eklendi!`)
+  };
+
   return (
     <div>
-      <Table celled style={{marginTop:"3em"}}>
+      <Table celled style={{marginTop:"3em",marginLeft:"-3em"}}>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>İlan Durumu</Table.HeaderCell>
@@ -25,28 +35,30 @@ export default function JobAdvertisementList() {
             <Table.HeaderCell>Pozisyon</Table.HeaderCell>
             <Table.HeaderCell>Yayınlanma Tarihi</Table.HeaderCell>
             <Table.HeaderCell>Çalışma Türü</Table.HeaderCell>
+            <Table.HeaderCell></Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 
         <Table.Body>
           {jobAdvertisements.map((jobAdvertisement) => (
             <Table.Row key={jobAdvertisement.advertisementId}>
-              <Table.Cell>{jobAdvertisement.active}</Table.Cell>
+              <Table.Cell>{jobAdvertisement.active===true && "Aktif İlan"}{jobAdvertisement.active}</Table.Cell>
               <Table.Cell>{jobAdvertisement.applicationDeadline}</Table.Cell>
-              <Table.Cell>{jobAdvertisement.city}</Table.Cell>
+              <Table.Cell>{jobAdvertisement.city.cityName}</Table.Cell>
               <Table.Cell>{jobAdvertisement.jobDescription}</Table.Cell>
               <Table.Cell>{jobAdvertisement.minSalary}</Table.Cell>
               <Table.Cell>{jobAdvertisement.maxSalary}</Table.Cell>
-              <Table.Cell>{jobAdvertisement.position}</Table.Cell>
+              <Table.Cell>{jobAdvertisement.position.positionName}</Table.Cell>
               <Table.Cell>{jobAdvertisement.releaseDate}</Table.Cell>
               <Table.Cell>{jobAdvertisement.workType}</Table.Cell>
+              <Table.Cell><Button primary onClick={()=>handleAddToFavorie(jobAdvertisement)}>Favorilere ekle</Button></Table.Cell>
             </Table.Row>
           ))}
         </Table.Body>
 
         <Table.Footer>
           <Table.Row>
-            <Table.HeaderCell colSpan="9">
+            <Table.HeaderCell colSpan="10">
               <Menu floated="right" pagination>
                 <Menu.Item as="a" icon>
                   <Icon name="chevron left" />
