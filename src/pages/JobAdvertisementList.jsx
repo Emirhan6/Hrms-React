@@ -18,7 +18,8 @@ export default function JobAdvertisementList() {
 
   const handleAddToFavorie = (jobAdvertisement) => {
     dispatch(addToFavorie(jobAdvertisement));
-    toast.success(`İlan ${jobAdvertisement.advertisementId} favorilere eklendi!`)
+    //console.log(`${jobAdvertisement.advertisementId} favorilere eklendi!`)
+    toast.success(`${jobAdvertisement.advertisementId} favorilere eklendi!`)
   };
 
   return (

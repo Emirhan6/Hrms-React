@@ -42,7 +42,7 @@ export default function Dashboard() {
             <Route exact path="/employerscreate" component={EmployerCreate}/>
             <Route exact path="/cvcreate" component={CvCreate}/>
 
-            <Route exact path="/jobseeker/:name" component={JobSeekerDetail}/>
+            <Route exact path="/jobseeker/:id" component={JobSeekerDetail}/>
             <Route exact path="/cv/:id" component={CvDetail}/>
 
             <Route exact path="/register" component={RegisterForm}/>

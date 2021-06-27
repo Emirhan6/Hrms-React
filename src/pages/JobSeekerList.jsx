@@ -24,6 +24,7 @@ export default function JobSeekerList() {
             <Table.HeaderCell>Email</Table.HeaderCell>
             <Table.HeaderCell>Doğum Yılı</Table.HeaderCell>
             <Table.HeaderCell>Tc No</Table.HeaderCell>
+            {/* <Table.HeaderCell></Table.HeaderCell> */}
             <Table.HeaderCell></Table.HeaderCell>
           </Table.Row>
         </Table.Header>
@@ -36,7 +37,8 @@ export default function JobSeekerList() {
               <Table.Cell>{jobSeeker.email}</Table.Cell>
               <Table.Cell>{jobSeeker.birthDate}</Table.Cell>
               <Table.Cell>{jobSeeker.nationalityId}</Table.Cell>
-              <Table.Cell><Button as={NavLink} to={`/jobseeker/${jobSeeker.firstName}`} primary>Detaya Git</Button></Table.Cell>
+              {/* <Table.Cell><Button as={NavLink} to={`/jobseeker/${jobSeeker.firstName}`} primary>Detaya Git</Button></Table.Cell> */}
+              <Table.Cell><Button as={NavLink} to={`/jobseeker/${jobSeeker.userId}`} primary>Detaya Git</Button></Table.Cell>
             </Table.Row>
           ))}
         </Table.Body>

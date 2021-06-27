@@ -7,7 +7,7 @@ import Favories from "./Favories";
 import { useSelector } from "react-redux";
 
 export default function Navi() {
-  const {favorieItems} = useSelector(state => state.favories)
+  const {favorieItems} = useSelector(state => state.favorie)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const history = useHistory()
 

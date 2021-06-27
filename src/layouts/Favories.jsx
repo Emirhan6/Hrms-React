@@ -5,7 +5,7 @@ import { Dropdown, DropdownDivider, Label } from "semantic-ui-react";
 
 export default function Favories() {
 
-  const {favorieItems} = useSelector(state => state.favories)
+  const {favorieItems} = useSelector(state => state.favorie)
 
   return (
     <div>
@@ -14,7 +14,7 @@ export default function Favories() {
           {
             favorieItems.map((favorieItem)=>(
               <Dropdown.Item>
-                {favorieItem.jobAdvertisement.jobDescription}
+                {favorieItem.jobAdvertisement.advertisementId}
                 <Label>{favorieItem.quantity}</Label>
               </Dropdown.Item>
             ))
